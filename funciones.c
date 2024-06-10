@@ -32,15 +32,15 @@ void registrarMatrimonio(char personas[][4][20]){
 
 void verificarPersona(char personas[][4][20]){
     char cedula[20];
-    int index,index2;
+    int index;
     printf("Ingrese la cedula de la persona que desea buscar: ");
-    scanf("%s",cedula);
+    scanf("%s", cedula);
     index = buscarPersonaXCedula(personas, cedula);
-    if (index != 0) {
+    if (index != -1) { 
         if (strcmp(personas[index][3], "soltero") == 0) {
             printf("La persona es soltera\n");
         } else {
-            index2 = buscarPersonaXCedula(personas, personas[index][3]);
+            int index2 = buscarPersonaXCedula(personas, personas[index][3]);
             printf("La persona es casada con %s %s\n", personas[index2][0], personas[index2][1]);
         }
     }
